@@ -4,7 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -25,6 +29,8 @@ public class MainPage extends PageObject {
 
     }
 
+    WebDriverWait wait = new WebDriverWait(driver, 30);
+
     @FindBy(id = "paste_code")
     private WebElement textField;
 
@@ -39,7 +45,6 @@ public class MainPage extends PageObject {
 
     @FindBy(xpath = "//*[@class='form_right']/select")
     private WebElement selectHighlighting;
-
 
 
     @FindBy(xpath = "//*[@class='form_right']/descendant::b")
@@ -58,7 +63,7 @@ public class MainPage extends PageObject {
     }
 
     public void selectExpiration(String valueExpiration) {
-        formPasteExpiration.click();
+        formPasteExpiration.click(); wait.until(ExpectedConditions.elementToBeClickable(selectValueExpiration));
         Select select = new Select(selectValueExpiration);
         select.selectByVisibleText(valueExpiration);
         formPasteExpiration.click();
@@ -78,6 +83,7 @@ public class MainPage extends PageObject {
     public void selectHighlighting(String valueHighlighting) {
         formHighlighting.click();
         Select select = new Select(selectHighlighting);
+        driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
         select.selectByVisibleText(valueHighlighting);
         formHighlighting.click();
 

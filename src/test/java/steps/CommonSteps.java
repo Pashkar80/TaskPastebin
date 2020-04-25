@@ -44,8 +44,8 @@ public class CommonSteps {
         MainPage mainPage = new MainPage(driver);
         mainPage.openPage();
         mainPage.fillTextfield(paste.getCode());
-        mainPage.selectHighlighting(paste.getHighlighting());
-        mainPage.selectExpiration(paste.getValueExpiration());
+//       mainPage.selectHighlighting(paste.getHighlighting());
+ //       mainPage.selectExpiration(paste.getValueExpiration());
         mainPage.getPasteName(paste.getNamePaste());
         mainPage.submitPaste();
         return mainPage;

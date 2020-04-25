@@ -7,7 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pages.MainPage;
 import steps.CommonSteps;
 
 /**
@@ -26,8 +25,8 @@ public class TestNewPasteWithHighlighting {
     @BeforeTest
 
     public void initeDriver() throws InterruptedException {
-        driver = LocalDriver.initeWebDriver();
-        MainPage step = new CommonSteps(driver).createNewPasteWithHighlighting(paste);
+        driver = LocalDriver.initWebDriver();
+        new CommonSteps(driver).createNewPasteWithHighlighting(paste);
 
     }
 

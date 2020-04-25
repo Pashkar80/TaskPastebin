@@ -19,7 +19,7 @@ public class TestNewSimplePaste {
 
     @BeforeTest
     public void initeDriver() {
-        driver = LocalDriver.initeWebDriver();
+        driver = LocalDriver.initWebDriver();
     }
 
     @Test
